@@ -1,0 +1,69 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+<div class="row">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12" style="text-align: center">
+                        <div style=" margin: auto; padding:10px;">
+                                <label for="companyCode">Company Code:</label>      
+                            <select [(ngModel)]="companyCode">  
+                                    <option *ngFor="let company of companies" [value]="company.companyCode">
+                                        {{company.companyCode}}  
+                                    </option>
+                                </select>    
+                            </div>
+
+                            <div class = "form-group">
+                                <label for="startDate">Start Date:</label>   
+                                <input type="date" class="startDate" [(ngModel)]="startDate" name="startDate" placeholder="" required>
+                            </div>
+
+                            <div class = "form-group">
+                                <label for="endDate">End Date:</label>   
+                                <input type="date" class="endDate" [(ngModel)]="endDate" name="endDate" placeholder="" required>
+                            </div>
+                        <button class="btn btn-danger" type="button" (click)="searchStockByEndDateAndStartDate()">Search</button>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="container">
+<div class="container">
+<div class="row col-md-6 col-md-offset-2 custyle">
+<table class="table table-striped custab">
+<thead>
+    <tr>
+        <th>Stock Price</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let stock of stocks">
+        <td>{{stock.stockPriceValue}}</td>
+        <td>{{stock.stockDate | slice:0:10}}</td>
+        <td>{{stock.stockDate | slice:11:19}}</td>
+    </tr>
+</tbody>
+</table>
+
+<table class="table table-striped custab">
+<thead>
+    <tr>
+        <th>Min</th>
+        <th>Max</th>
+        <th>Average</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>{{min}}</td>
+        <td>{{max}}</td>
+        <td>{{average}}</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>

@@ -1,0 +1,25 @@
+<header class ="header">
+    <div class="topnav">
+            
+        <a routerLink="register" routerLinkActive="active" >Add Company</a>
+                            
+        <a routerLink="companies" routerLinkActive="active" >List All Company</a>
+
+        <a  routerLink="searchCompany" routerLinkActive="active" >Search Company</a>
+
+        <a  routerLink="addStock" routerLinkActive="active" >Add Stock</a>
+
+        <a  routerLink="searchStock" routerLinkActive="active" >Search Stock</a>
+                        
+    </div>
+</header>
+`
+<h1 class="text-center">{{title}}</h1>
+<div class= "container">
+        <router-outlet></router-outlet>
+</div>
+<footer class="footer">
+    <div class="container">
+        <span>All Rights Reserved 2021 @Cognizant</span>
+    </div>
+</footer>

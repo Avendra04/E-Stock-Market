@@ -1,0 +1,15 @@
+# FROM node:latest as builder
+# RUN mkdir /usr/src/app
+# WORKDIR /usr/src/app
+# COPY . /usr/src/app
+# RUN npm install && npm run ng build
+FROM node:12-alpine AS builder
+WORKDIR /usr/src/app
+COPY package.json .
+RUN npm install
+COPY . .
+
+FROM nginx:1.17.1-alpine
+COPY --from=build usr/src/app/dist/e-stock-market /usr/share/nginx/html
+# CMD ng serve --host 0.0.0.0 --port 4200
+# EXPOSE 4200

@@ -1,0 +1,68 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <h2><font size="5" color="deeppink">Company Registation</font></h2>
+
+        <div style="text-align: center">
+        <h3>{{message}}</h3>
+        </div>
+
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                    <form #ngForm='ngForm'>
+                      <fieldset>
+                     
+                        <legend class="text-center">Valid Information is required</legend>   
+                        
+                            <div class = "form-group">
+                                <label for="companyName">Company Name:</label>  
+                                <input  type="text" class="form-control" name="companyName" [(ngModel)]="company.companyName" 
+                                placeholder="Enter Company Name" required minlength="3" #name="ngModel"/>
+                                <span class="help-bpx" *ngIf="name.touched && !name.valid">Please enter company name</span>
+                            </div>
+
+                            <div class = "form-group">
+                            <label for="companyCode">Company Code:</label>   
+                            <input type="text" class="form-control" [(ngModel)]="company.companyCode" 
+                            name="companyCode" placeholder="Enter Company Code" required #code="ngModel">
+                            <span class="help-bpx" *ngIf="code.touched && !code.valid">Please enter company code</span>
+                        </div>
+
+                            <div class = "form-group">
+                                    <label for="companyCeo">Company Ceo:</label>   
+                                <input type="text" class="form-control" [(ngModel)]="company.companyCeo" 
+                                name="companyCeo" placeholder="Enter Company CEO" required #ceo="ngModel">
+                                <span class="help-bpx" *ngIf="ceo.touched && !ceo.valid">Please enter company ceo</span>
+                            </div>
+
+                            <div class = "form-group">
+                                    <label for="companyTurnover">Company Turnover:</label>   
+                                <input type="text" class="form-control" [(ngModel)]="company.companyTurnover" 
+                                name="companyTurnover" minlength="9" placeholder="Enter Company Turnover" required #turnover=ngModel>
+                                <span class="help-bpx" *ngIf="turnover.touched && !turnover.valid">Please enter company turnover</span>
+                            </div>
+
+                            <div class = "form-group">
+                                    <label for="companyWebsite">Company Website:</label>   
+                                <input type="text" class="form-control" [(ngModel)]="company.companyWebsite" 
+                                name="companyWebsite" placeholder="Enter Company Website" required #website=ngModel>
+                                <span class="help-bpx" *ngIf="website.touched && !website.valid">Please enter company website</span>
+                            </div>
+
+                            <div class = "form-group">
+                                    <label for="companyListedIn">Company Listed In:</label>   
+                                <input type="text" class="form-control" [(ngModel)]="company.companyListedIn" 
+                                name="companyListedIn" placeholder="Enter Listed In" required #listed=ngModel>
+                                <span class="help-bpx" *ngIf="listed.touched && !listed.valid">Please enter company listedin</span>
+                            </div>
+
+                            <div class = "form-group">
+                                    <input class="btn btn-success" type="submit" value="Register" [disabled]="!ngForm.valid" (click)="registerCompany()">
+                            </div>
+                        </fieldset>
+                    </form>   
+                    </div>     
+                </div>
+        </div>
+        
